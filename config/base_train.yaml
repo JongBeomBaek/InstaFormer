@@ -1,0 +1,46 @@
+Train: 
+  model_name: 'Instaformer'
+  log_path: './weights'
+  use_cuda: True
+  seed: 42
+  start_epoch: 0
+  end_epoch: 200
+  batch_size: 4
+  num_workers: 4
+  lr: 1e-4
+  lr_scheduler: True
+  step_size: 15
+  w_GAN: 1.0
+  w_Recon: 1.0
+  w_Style: 1.0 
+  w_NCE: 1.0
+  w_Instance_NCE: 1.0
+  
+
+  model:
+    load_weight : False
+    load_optim : False
+    weight_path : './weights'
+    feat_layers: [0,4,8]
+    num_patches: 256
+
+  data:
+    dataset: 'init'
+    dir_A: '/root/Data/i2i/sunny'
+    dir_B: '/root/Data/i2i/night'
+    height: 352
+    width: 352
+    num_box: 20
+    max_dataset_size: 5000
+
+  visualize:
+    display_winsize: 256
+    display_freq: 400
+    display_ncols:  4
+    display_id: -1
+    display_server: "http://localhost"
+    display_env:  'main'
+    display_port: 8097
+    update_html_freq: 1000
+    print_freq: 100
+    no_html: False
